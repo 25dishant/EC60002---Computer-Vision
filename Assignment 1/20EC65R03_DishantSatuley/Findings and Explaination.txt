@@ -1,0 +1,58 @@
+				Assignment 1
+Part(a)
+For the first part of the assignment, our objective was to find the RGB representation of a true white object under three different illuminance.
+As the object is truely white, its reflectance will be unity.
+That is, 		𝜌(𝜆) = 1
+Therefore,	𝐶(𝜆) = 𝐼(𝜆)𝜌(𝜆)
+becomes		𝐶(𝜆) = 𝐼(𝜆)
+
+Now starting with philips_spectra, I one by one calculated the tristumulus values X, Y and Z, put them in an array and multiplied with inverse of the matrix that is used for the conversion between RGB and XYZ model. Consequently, I got an array that contains normalized values of RGB color components. This array is as follows,
+		[0.44552062, 0.19951144, 0.0603651 ]
+When multiplied with 255, I got the the following values for red, green and blue component,
+		Red = 113.60775919058099
+		Green = 50.8754179227766
+		Blue = 15.393100008143158
+This combination corresponds to sepia color.
+
+
+When I repeated the same procedure for the silvania_spectra, I got the following normalized values for RGB components that are reflected back from a true white object,
+		[0.68675213, 0.39204896, 0.13036428]
+When multiplied with 255, I got the the following values for red, green and blue component,
+		Red = 175.12179229596404
+		Green = 99.9724847224213
+		Blue = 33.24289207793977
+This combination corresponds to light brown color.
+
+
+For the uniform_spectra, the normalized color component values are as follows,
+		[1.00000032, 0.99999973, 1.0000001 ]
+The normalized values shouldn't be greater than 1 but somehow because of some value in the data, it's exceeding by very small amount. So to be on safe side, I rounded-off the RGB values and they are as follows,
+		Red = 255.0
+		Green = 255.0
+		Blue = 255.0
+This combination corresponds to pure white color.
+
+
+
+Part(b)
+In the 2nd part of this assignment, we need to find the RGB representation of an object, the reflectance of which is 
+		𝜌(𝜆) = w(𝜆)/max(w(𝜆))
+In this case, we have to consider uniform_spectra.
+So, I first calculated the radiance for each x, y and z by using the following formula,
+		C(𝜆) = uniform_spectra*𝜌(𝜆)
+Then, to find the respective tristumulus values,
+		X = sum(C(𝜆)*x(𝜆))
+		Y = sum(C(𝜆)*y(𝜆))
+		Z = sum(C(𝜆)*z(𝜆))
+
+I got,		X = 0.63402499
+		Y = 0.72249052
+		Z = 0.7367702
+
+By multiplying the array of X, Y and Z with the inverse of the matrix that is used for the conversion between XYZ and RGB color models, we get the normalized values of RGB colors reflected from given object,
+		[0.50663127, 0.76931411, 0.73644147]
+When multiplied with 255, we get values of colors in 8 bit format,
+		Red = 129.19097505347645
+		Green = 196.1750971840394
+		Blue = 187.79257556388146
+This combination corresponds to pearl aqua color.
