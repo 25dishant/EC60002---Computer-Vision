@@ -1,0 +1,8 @@
+Gabor filter's impulse response is the multiplication of a harmonic function with a  Gaussian function.
+As per convolution theorem, the convolution of Fourier Transformation (FT) of harmonic function and FT of Gaussian function is nothing but FT of a Gabor filter's impulse response [ FT(Gabor) = FT(Harmonic) FT(Gaussian) ].
+Gabor filters with different frequencies and with orientations in different directions (similar to those of the human visual system) have been used to localize and extract edges from images.since edges are rich in high frequency components, whereas other regions of an image are relatively smooth in nature.
+
+
+
+First of all, the original image f is not first multiplied by the Gaussian window. But by the resultant multiplication of a harmonic function with a Gaussian function.
+Definitely we would get edges by applying Gabor filter(multiplication of a harmonic function with a Gaussian function), since Gabor filter has impulses according to the corresponding harmonic function. While applying Gabor filter to an image, it would produce high value if an image has edges (high frequency). For other non edge regions, it would produce low value, indicates the multiplication of impulses with smooth region. 

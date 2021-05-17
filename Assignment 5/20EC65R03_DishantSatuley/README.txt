@@ -1,0 +1,1 @@
+After uploading the .ipynb file to google colab, mount the drive and change the path specified in the code according to your image folder location.
